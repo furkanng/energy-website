@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -15,7 +14,7 @@ return new class extends Migration
             $table->increments("id");
             $table->string('title')->nullable();
             $table->string('key')->nullable();
-            $table->string('value')->nullable();
+            $table->text('value')->nullable();
             $table->string('type')->nullable();
             $table->string('group_key')->nullable();
         });

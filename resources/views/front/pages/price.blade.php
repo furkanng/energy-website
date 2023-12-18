@@ -3,59 +3,35 @@
 @section('title', 'Home Page')
 @section('content')
 
-
-
-<section>
-    <div class="row text-center pt-4">
-        <div class="col-lg-6 m-auto">
-            <h1 class="h1">Katalog</h1>
+    <section>
+        <div class="row text-center pt-4">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1">Katalog</h1>
+            </div>
         </div>
-    </div>
-
-<div class="container">
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-    <!-- Card 1 -->
-    <div class="col custom-card">
-      <div class="card border-0 text-center h-100">
-        <a href="https://cetinkayapano.com"><img class="img-fluid brand-img" src="{{asset("front/assets/img/cetinkaya-pano-logo.jpg")}}" alt="Logo"></a>
-      </div>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="col custom-card">
-      <div class="card border-0 text-center h-100">
-        <a href="https://momentum.com.tr/"><img class="img-fluid brand-img" src="{{asset("front/assets/img/momentum-logo.jpg")}}" alt="Logo"></a>
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="col custom-card">
-      <div class="card border-0 text-center h-100">
-        <a href="https://birikimelektrik.com.tr/"><img class="img-fluid brand-img" src="{{asset("front/assets/img/birikim-logo.jpg")}}" alt="Logo"></a>
-      </div>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="col custom-card">
-      <div class="card border-0 text-center h-100">
-        <a href="http://safakelektrik.com.tr/"><img class="img-fluid brand-img" src="{{asset("front/assets/img/safak-logo.jpg")}}" alt="Logo"></a>
-      </div>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="col custom-card p-4">
-      <div class="card border-0 text-center h-100">
-        <a href="https://www.uni-t.com.tr/"><img class="img-fluid brand-img" src="{{asset("front/assets/img/unit-logo.jpg")}}" alt="Logo"></a>
-      </div>
-    </div>
-
-    <!-- Card 6 -->
-    <div class="col custom-card  pt-3">
-      <div class="card border-0 text-center h-100">
-        <a href="https://www.bannerengineering.com/"><img class="img-fluid brand-img" src="{{asset("front/assets/img/banner-logo.jpg")}}" alt="Logo"></a>
-      </div>
-    </div>
-  </div>
-</div>
-</section>
+        <hr style="width: 50%; margin-left: auto; margin-right: auto">
+        @if($catalogs->count() !== 0)
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                    @foreach($catalogs as $catalog)
+                        <div class="col custom-card">
+                            <div class="card border-0 text-center h-100">
+                                <a target="_blank" href="{{ config("app.url")."/storage/pdf/". $catalog["pdf"]  }}">
+                                    <img class="img-fluid brand-img"
+                                         src="{{ config("app.url")."/storage/catalog/". $catalog["image"]  }}"
+                                         alt="Logo"></a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @else
+            <div class="p-5">
+                <div class="h-100 py-5 services-icon-wap shadow border-0">
+                    <div class="h1 text-success text-center"><i class="fas fa-exclamation-circle"></i></div>
+                    <h2 class="h5 mt-4 text-center">Herhangi bir kayıt bulunamamıştır.</h2>
+                </div>
+            </div>
+        @endif
+    </section>
 @endsection

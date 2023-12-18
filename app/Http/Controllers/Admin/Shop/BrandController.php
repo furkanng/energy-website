@@ -10,7 +10,7 @@ class BrandController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin');
+        #$this->middleware('admin');
     }
 
     /**
@@ -18,7 +18,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        return response()->api(Brand::all());
+        $brands = Brand::all();
+        return view('user.pages.brand', compact("brands"));
     }
 
     /**
@@ -27,11 +28,13 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "name" => "required",
+            "image" => "required",
         ]);
         $model = new Brand();
-        $model->fill(request()->all())->save();
-        return response()->api($model);
+        $model->fill($request->all())->forceFill([
+            'status' => $request->has('status') ? 1 : 0,
+        ])->save();
+        return redirect()->back()->with('success', 'Başarıyla yüklendi.');
     }
 
     /**
@@ -39,8 +42,8 @@ class BrandController extends Controller
      */
     public function show(string $id)
     {
-        $model = Brand::findOrFail($id);
-        return response()->api($model);
+        $brand = Brand::findOrFail($id);
+        return view("user.pages.brandEdit", compact("brand"));
     }
 
     /**
@@ -49,11 +52,13 @@ class BrandController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            "name" => "required|sometimes",
+            "image" => "required|sometimes",
         ]);
         $model = Brand::findOrFail($id);
-        $model->fill(request()->all())->save();
-        return response()->api($model);
+        $model->fill($request->all())->forceFill([
+            'status' => $request->has('status') ? 1 : 0,
+        ])->save();
+        return redirect()->route("panel.brand.index");
     }
 
     /**
@@ -63,6 +68,6 @@ class BrandController extends Controller
     {
         $model = Brand::findOrFail($id);
         $model->delete();
-        return response()->api($model);
+        return redirect()->back()->with('success', 'Başarıyla yüklendi.');
     }
 }

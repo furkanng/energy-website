@@ -8,31 +8,20 @@
                 <ul class="list-unstyled text-light footer-link-list">
                     <li>
                         <i class="fas fa-map-marker-alt fa-fw"></i>
-                        123 Consectetur at ligula 10660
+                        {{$contact["contact_address"]}}
                     </li>
                     <li>
                         <i class="fa fa-phone fa-fw"></i>
-                        <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                        <a class="text-decoration-none"
+                           href="tel:{{$contact["contact_phone"]}}">{{$contact["contact_phone"]}}</a>
                     </li>
                     <li>
                         <i class="fa fa-envelope fa-fw"></i>
-                        <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                        <a class="text-decoration-none"
+                           href="mailto:{{$contact["contact_email"]}}">{{$contact["contact_email"]}}</a>
                     </li>
                 </ul>
             </div>
-<!--
-            <div class="col-md-4 pt-5">
-                <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
-                <ul class="list-unstyled text-light footer-link-list">
-                    <li><a class="text-decoration-none" href="#">Luxury</a></li>
-                    <li><a class="text-decoration-none" href="#">Sport Wear</a></li>
-                    <li><a class="text-decoration-none" href="#">Men's Shoes</a></li>
-                    <li><a class="text-decoration-none" href="#">Women's Shoes</a></li>
-                    <li><a class="text-decoration-none" href="#">Popular Dress</a></li>
-                    <li><a class="text-decoration-none" href="#">Gym Accessories</a></li>
-                    <li><a class="text-decoration-none" href="#">Sport Shoes</a></li>
-                </ul>
-            </div> -->
 
             <div class="col-md-6 pt-5 d-flex justify-content-end">
                 <div>
@@ -54,19 +43,23 @@
             <div class="col-auto me-auto">
                 <ul class="list-inline text-left footer-icons">
                     <li class="list-inline-item border border-light rounded-circle text-center">
-                        <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i
+                        <a class="text-light text-decoration-none" target="_blank"
+                           href="{{$socialMedia["media_facebook"]}}"><i
                                 class="fab fa-facebook-f fa-lg fa-fw"></i></a>
                     </li>
                     <li class="list-inline-item border border-light rounded-circle text-center">
-                        <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i
+                        <a class="text-light text-decoration-none" target="_blank"
+                           href="{{$socialMedia["media_instagram"]}}"><i
                                 class="fab fa-instagram fa-lg fa-fw"></i></a>
                     </li>
                     <li class="list-inline-item border border-light rounded-circle text-center">
-                        <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i
+                        <a class="text-light text-decoration-none" target="_blank"
+                           href="{{$socialMedia["media_twitter"]}}"><i
                                 class="fab fa-twitter fa-lg fa-fw"></i></a>
                     </li>
                     <li class="list-inline-item border border-light rounded-circle text-center">
-                        <a class="text-light text-decoration-none" target="_blank" href="https://www.youtube.com/"><i
+                        <a class="text-light text-decoration-none" target="_blank"
+                           href="{{$socialMedia["media_youtube"]}}"><i
                                 class="fab fa-youtube fa-lg fa-fw"></i></a>
                     </li>
                 </ul>

@@ -93,6 +93,13 @@ Route::prefix('ayarlar')->group(function () {
         'store' => 'panel.message.store',
         'destroy' => 'panel.message.destroy',
     ]);
+    Route::resource("brand", BrandController::class)->parameters(["brand" => "id"])->names([
+        'index' => 'panel.brand.index',
+        'show' => 'panel.brand.show',
+        'store' => 'panel.brand.store',
+        'update' => 'panel.brand.update',
+        'destroy' => 'panel.brand.destroy',
+    ]);
 });
 
 

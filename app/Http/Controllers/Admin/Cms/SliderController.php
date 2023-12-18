@@ -34,11 +34,11 @@ class SliderController extends Controller
 
         if ($request->hasFile('image')) {
             $filename = "slider-" . rand(1, 300) . "." . $request->file('image')->getClientOriginalExtension();
-            Storage::disk('public')->put('images/' . $filename, file_get_contents($request->file('image')));
+            Storage::disk('public')->put('slider/' . $filename, file_get_contents($request->file('image')));
             (new Slider())->fill([
                 "title" => $request->get("title"),
                 "image" => $filename,
-                "url" => config("app.url") . "/storage/images/" . $filename,
+                "url" => config("app.url") . "/storage/slider/" . $filename,
                 'status' => $request->has('status') ? 1 : 0,
             ])->saveQuietly();
             return redirect()->back()->with('success', 'Resimler başarıyla yüklendi.');
@@ -67,13 +67,13 @@ class SliderController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            Storage::disk('public')->delete('images/' . $model->image);
+            Storage::disk('public')->delete('slider/' . $model->image);
             $filename = "slider-" . rand(1, 300) . "." . $request->file('image')->getClientOriginalExtension();
-            Storage::disk('public')->put('images/' . $filename, file_get_contents($request->file('image')));
+            Storage::disk('public')->put('slider/' . $filename, file_get_contents($request->file('image')));
             $model->fill([
                 "title" => $request->get("title"),
                 "image" => $filename,
-                "url" => config("app.url") . "/storage/images/" . $filename,
+                "url" => config("app.url") . "/storage/slider/" . $filename,
                 'status' => $request->has('status') ? 1 : 0,
             ])->saveQuietly();
             return redirect()->back()->with('success', 'Resimler başarıyla yüklendi.');
@@ -86,7 +86,7 @@ class SliderController extends Controller
     public function destroy(string $id): \Illuminate\Http\RedirectResponse
     {
         $model = Slider::findOrFail($id);
-        Storage::disk('public')->delete('images/' . $model->image);
+        Storage::disk('public')->delete('slider/' . $model->image);
         $model->delete();
         return redirect()->back();
     }

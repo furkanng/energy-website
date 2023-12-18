@@ -4,9 +4,11 @@
         <div class="w-100 d-flex justify-content-between">
             <div>
                 <i class="fa fa-envelope mx-2"></i>
-                <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com </a>
+                <a class="navbar-sm-brand text-light text-decoration-none"
+                   href="mailto:{{$contact["contact_email"]}}">{{$contact["contact_email"]}}</a>
                 <i class="fa fa-phone mx-2"></i>
-                <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                <a class="navbar-sm-brand text-light text-decoration-none"
+                   href="tel:{{$contact["contact_phone"]}}">{{$contact["contact_phone"]}}</a>
             </div>
             <div>
 
@@ -59,21 +61,12 @@
                             <button type="button" class="btn dropdown-toggle dropdown-toggle-split"
                                     data-bs-toggle="dropdown" aria-expanded="false"></button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{ route("front.product") }}">Elektrik Motorları</a>
-                                <a class="dropdown-item" href="{{ route("front.product") }}">Elektrik Malzemeleri</a>
-                                <a class="dropdown-item" href="{{ route("front.product") }}">Redüktörler</a>
-                                <a class="dropdown-item" href="{{ route("front.product") }}">Elektrik Motorları</a>
-                                <a class="dropdown-item" href="{{ route("front.product") }}">Elektrik Malzemeleri</a>
-                                <a class="dropdown-item" href="{{ route("front.product") }}">Redüktörler</a>
-                                <a class="dropdown-item" href="{{ route("front.product") }}">Fan ve Aspiratörler</a>
-                                <a class="dropdown-item" href="{{ route("front.product") }}">Manyetik Frenler</a>
-                                <a class="dropdown-item" href="{{ route("front.product") }}">Kaplin ve Kasnaklar</a>
-                                <a class="dropdown-item" href="{{ route("front.product") }}">Pompalar</a>
-                                <a class="dropdown-item" href="{{ route("front.product") }}">AG OG Panoları</a>
-                                <a class="dropdown-item" href="{{ route("front.product") }}">Otomasyon</a>
-                                <a class="dropdown-item" href="{{ route("front.product") }}">Kablo</a>
-                                <a class="dropdown-item" href="{{ route("front.product") }}">Aydınlatma</a>
-                                <a class="dropdown-item" href="{{ route("front.product") }}">Anahtar Priz</a>
+                                @php $categories = \App\Models\Category::all(); @endphp
+                                @foreach($categories as $sub)
+                                    <a class="dropdown-item"
+                                       href="{{ route("front.categoryShow",["seo_link" => $sub["seo_link"]]) }}">{{$sub["name"]}}</a>
+                                @endforeach
+
                             </div>
                         </div>
                     </li>

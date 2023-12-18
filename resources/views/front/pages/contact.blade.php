@@ -64,6 +64,7 @@
                 <h1 class="h1 p-2">İletişim</h1>
             </div>
         </div>
+        <hr style="width: 50%; margin-left: auto; margin-right: auto">
         <div class="container m-3">
             <div class="row ">
                 <!-- First Half -->
@@ -105,37 +106,31 @@
                         <h4 class="text-center">İletişim Bilgileri</h4>
                         <div class="address-wrap">
                             <h6>Adres</h6>
-                            <p>100. Yıl Bulvarı No:112, 06370, Ostim, Yenimahalle - Ankara</p>
+                            <p>{{$contact["contact_address"]}}</p>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="phone-number-wrap">
                                     <h6>Telefon</h6>
-                                    <p>+90 (312) 354 14 77 (PBX)</p>
+                                    <p>{{$contact["contact_phone"]}}</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="phone-number-wrap">
                                     <h6>E-posta</h6>
-                                    <p>info@aydinlar.com.tr</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="phone-number-wrap">
-                                    <h6>Telefon</h6>
-                                    <p>+90 (850) 800 14 77</p>
+                                    <p>{{$contact["contact_email"]}}</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="phone-number-wrap">
                                     <h6>Faks</h6>
-                                    <p>+90 (312) 385 41 89</p>
+                                    <p>{{$contact["contact_fax"]}}</p>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <p>
                                     <iframe style="border: 0;"
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3057.647970430308!2d32.744908215106285!3d39.97162267941929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d349bc2e0d0379%3A0xd058ba823c24f700!2sAyd%C4%B1nlar+Elektrik!5e0!3m2!1str!2str!4v1564755893144!5m2!1str!2str"
+                                            src="{{$contact["map_api"]}}"
                                             width="100%" height="450" frameborder="0"
                                             allowfullscreen="allowfullscreen"></iframe>
                                 </p>
