@@ -4,7 +4,7 @@
 @section('content')
 
     <section>
-        <div class="row text-center pt-4">
+        <div class="row text-center py-5">
             <div class="col-lg-6 m-auto">
                 <h1 class="h1">Katalog</h1>
             </div>

@@ -3,74 +3,29 @@
 namespace App\Http\Controllers\Admin\Authentication;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\AdminLoginRequest;
-use App\Http\Requests\AdminRegisterRequest;
-use App\Models\Admin;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function __construct()
+    public function index()
     {
-        $this->middleware('auth:admin-api', ['except' => ['login', 'register']]);
+        return view('user.pages.login');
     }
 
-    public function register(AdminRegisterRequest $request)
+    public function login(Request $request)
     {
-        $model = new Admin();
-
-        $model->name = $request->name;
-        $model->surname = $request->surname;
-        $model->email = $request->email;
-        $model->password = Hash::make($request->password);
-
-        $result = $model->save();
-
-        if ($result) {
-            return response()->json([
-                "status" => true,
-                "message" => "User Registered Successfully",
-                "data" => $model,
-            ]);
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect()->route('panel.home');
         } else {
-            return response()->json([
-                "status" => false,
-                "message" => "User Registered Not Successfully",
-            ], 401);
+            return redirect()->route('panel.login')->with('error', 'Giriş başarısız.');
         }
-    }
-
-    public function login(AdminLoginRequest $request)
-    {
-        $credentials = $request->only("email", "password");
-        $token = \auth()->guard("admin-api")->attempt($credentials);
-
-        if (!$token) {
-            return response()->json([
-                "status" => false,
-                "message" => "Login Failed"
-            ]);
-        }
-
-        return $this->respondWithToken($token);
-    }
-
-    public function respondWithToken($token)
-    {
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60,
-            "user" => auth()->guard("admin-api")->user(),
-        ]);
     }
 
     public function logout()
     {
-        auth()->logout();
-        return response()->json([
-            "status" => true,
-            "message" => "User successfully logout"
-        ]);
+        Auth::logout();
+        return redirect()->route('panel.login')->with('error', 'Giriş başarısız.');
     }
 }

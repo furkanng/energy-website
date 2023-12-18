@@ -58,7 +58,7 @@
         }
     </style>
 
-    <section class="container py-5">
+    <section class="container py-3">
         <div class="row text-center pt-5 pb-3">
             <div class="col-lg-6 m-auto">
                 <h1 class="h1 p-2">İletişim</h1>
@@ -140,7 +140,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 @endsection

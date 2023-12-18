@@ -17,11 +17,6 @@
                            value="{{$contact["contact_fax"]}}">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">İletişim Başlık</label>
-                    <input type="text" class="form-control" name="contact_title"
-                           value="{{$contact["contact_title"]}}">
-                </div>
-                <div class="mb-3">
                     <label class="form-label">İletişim Email</label>
                     <input type="text" class="form-control" name="contact_email"
                            value="{{$contact["contact_email"]}}">

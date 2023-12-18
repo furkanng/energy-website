@@ -72,8 +72,8 @@
             <div class="row pt-2">
                 <div class="col-12">
                     <p class="text-left text-light">
-                        Copyright &copy; 2021 Company Name
-                        | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">Seda MALKOÇ</a>
+                        Copyright &copy; 2023 Sion Energy
+                        | created by Seda MALKOÇ
                     </p>
                 </div>
             </div>

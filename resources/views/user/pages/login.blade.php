@@ -48,12 +48,9 @@
             <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                 <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                     <div class="d-flex flex-column align-items-center justify-content-between mb-3">
-                        <a href="{{route("front.home")}}" class="">
-                            <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>OTO İHALE SİSTEMİ</h3>
-                        </a>
                         <h3>Giriş Yap</h3>
                     </div>
-                    <form method="POST" action="{{route("user.login")}}">
+                    <form method="POST" action="{{route("panel.login.post")}}">
                         @csrf
                         <div class="form-floating mb-3">
                             <input type="email" class="form-control" name="email" id="floatingInput"
@@ -65,31 +62,9 @@
                                    placeholder="şifreniz">
                             <label for="floatingPassword">Şifre</label>
                         </div>
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Beni Hatırla</label>
-                            </div>
-                            <a href="">Şifremi Unuttum</a>
-                        </div>
-                        <a href="{{route("user.login")}}">
-                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Giriş Yap</button>
-                        </a>
-                        <p class="text-center mb-0">Henüz üye değil misiniz ? <a href="{{route("front.register")}}">Kayıt
-                                Ol</a></p>
-                    </form>
 
-                    @if (session('success'))
-                        <div id="response" class="alert alert-success"
-                             style="width: 400px; padding-top: 2px; display: flex; justify-content: center">
-                            {{ session('success') }}
-                        </div>
-                    @elseif(session('error'))
-                        <div id="response" class="alert alert-danger py-2 d-flex justify-content-center"
-                             style="width: 400px; padding-top: 2px;  display: flex; justify-content: center">
-                            {{ session('error') }}
-                        </div>
-                    @endif
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Giriş Yap</button>
+                    </form>
 
                 </div>
             </div>

@@ -20,10 +20,10 @@ class HomeController extends Controller
         $socialMedia = $model->get("socialMedia_settings");
         $contact = $model->get("contact_settings");
         $general = $model->get("general_settings");
-        $blogs = Blog::all();
-        $categories = Category::all();
-        $sliders = Slider::all();
-        $brands = Brand::all();
+        $blogs = Blog::where("status", "1")->get();
+        $categories = Category::where("status", "1")->get();
+        $sliders = Slider::where("status", "1")->get();
+        $brands = Brand::where("status", "1")->get();
         return view('front.pages.home', compact(["socialMedia", "blogs", "categories", "sliders", "brands", "general", "contact"]));
     }
 
@@ -38,7 +38,7 @@ class HomeController extends Controller
 
     public function category()
     {
-        $categories = Category::all();
+        $categories = Category::where("status", "1")->get();
         $model = new Setting();
         $contact = $model->get("contact_settings");
         $socialMedia = $model->get("socialMedia_settings");
@@ -48,7 +48,7 @@ class HomeController extends Controller
     public function categoryShow($seo_link)
     {
         $category = Category::where("seo_link", $seo_link)->first();
-        $subCategories = SubCategory::where("category_id", $category->id)->get();
+        $subCategories = SubCategory::where("category_id", $category->id)->where("status", "1")->get();
         $model = new Setting();
         $contact = $model->get("contact_settings");
         $socialMedia = $model->get("socialMedia_settings");
@@ -67,7 +67,7 @@ class HomeController extends Controller
     {
         $model = new Setting();
         $contact = $model->get("contact_settings");
-        $catalogs = Catalog::all();
+        $catalogs = Catalog::where("status", "1")->get();
         $socialMedia = $model->get("socialMedia_settings");
         return view('front.pages.price', compact(["socialMedia", "catalogs", "contact"]));
     }

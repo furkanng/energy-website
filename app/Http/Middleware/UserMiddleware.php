@@ -18,7 +18,7 @@ class UserMiddleware
         if (auth()->guard("user")->check()) {
             return $next($request);
         } else {
-            return redirect()->route("front.home");
+            return redirect()->route("panel.login");
         }
 
     }

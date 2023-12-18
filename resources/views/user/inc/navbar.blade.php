@@ -17,8 +17,7 @@
                 <span class="d-none d-lg-inline-flex">Admin</span>
             </a>
             <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                <a href="#" class="dropdown-item">Ayarlar</a>
-                <a href="#" class="dropdown-item">Çıkış Yap</a>
+                <a href="{{route("panel.logout")}}" class="dropdown-item">Çıkış Yap</a>
             </div>
         </div>
     </div>
