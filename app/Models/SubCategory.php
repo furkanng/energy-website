@@ -17,6 +17,7 @@ class SubCategory extends Model
         "name",
         "image",
         "category_id",
+        "content",
         "seo_link",
         "seo_title",
         "seo_description",
@@ -27,11 +28,6 @@ class SubCategory extends Model
     public function category()
     {
         return $this->belongsTo(Category::class, "category_id", "id");
-    }
-
-    public function product()
-    {
-        return $this->hasMany(Product::class, "subcategory_id", "id");
     }
 
 }

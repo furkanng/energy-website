@@ -12,7 +12,7 @@
                             <img src="{{ config("app.url")."/storage/blogs/". $blog["image"]  }}" class="img-fluid mb-4"
                                  alt="Blog Image">
                             <h2 class="mb-3">{{$blog["title"]}}</h2>
-                            <p class="lead">{{$blog["content"]}}</p>
+                            <p class="lead">{!! $blog["content"] !!}</p>
                         </div>
                     </div>
                 </div>

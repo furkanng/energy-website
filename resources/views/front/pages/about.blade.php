@@ -39,7 +39,7 @@
         <section class="container py-3">
             <div class="row text-center pt-5 pb-3">
                 <div class="col-lg-6 m-auto">
-                    <h1 class="h1 p-2">FAALİYET ALANLARI</h1>
+                    <h1 class="h1 p-2">Faaliyet Alanları</h1>
                 </div>
             </div>
             <div class="container m-3">

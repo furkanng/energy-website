@@ -70,7 +70,7 @@
         <section class="container py-1">
             <div class="row text-center pt-5 pb-3">
                 <div class="col-lg-6 m-auto">
-                    <h1 class="h1 p-2">FAALİYET ALANLARI</h1>
+                    <h1 class="h1 p-2">Faaliyet Alanları</h1>
                 </div>
             </div>
             <hr style="width: 50%; margin-left: auto; margin-right: auto">
@@ -154,10 +154,10 @@
                         <h1 class="h1">Bloglar</h1>
                     </div>
                 </div>
-                <hr>
+                <hr style="width: 50%; margin-left: auto; margin-right: auto">
                 <div class="row">
                     @foreach($blogs as $blog)
-                        <div class="col-12 col-md-4 mb-4">
+                        <div class="col-12 col-md-4 mb-4 mt-2">
                             <div class="card h-100">
                                 <a href="{{ route("front.blog",["seo_link" => $blog["seo_link"]]) }}">
                                     <img src="{{ config("app.url")."/storage/blogs/". $blog["image"]  }}"
@@ -167,7 +167,7 @@
                                     <a href="{{ route("front.blog",["seo_link" => $blog["seo_link"]]) }}"
                                        class="h2 text-decoration-none text-dark m-auto ">{{$blog["title"]}}</a>
                                     <p class="card-text"><br>
-                                        {{substr($blog["content"],0,240)."..."}}
+                                        {!! substr($blog["content"],0,240)."..." !!}
                                     </p>
                                 </div>
                             </div>

@@ -29,7 +29,6 @@ class SubCategoryController extends Controller
     {
         $request->validate([
             "name" => "required",
-            "category_id" => "required",
         ]);
         $model = new SubCategory();
         $model->fill($request->all())->forceFill([
@@ -54,7 +53,6 @@ class SubCategoryController extends Controller
     {
         $request->validate([
             "name" => "required|sometimes",
-            "category_id" => "required|sometimes",
         ]);
         $model = SubCategory::findOrFail($id);
         $model->fill($request->all())->forceFill([
@@ -70,7 +68,6 @@ class SubCategoryController extends Controller
     {
         $model = SubCategory::findOrFail($id);
         $model->delete();
-        $model->product()->delete();
         return redirect()->route("panel.category.index");
     }
 }

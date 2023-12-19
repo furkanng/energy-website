@@ -12,7 +12,7 @@
 
             <div class="col-md-6">
                 <h2 class="mb-4">{{$subCategory["name"]}}</h2>
-                <p>{{$subCategory["content"]}}</p>
+                <p>{!! $subCategory["content"] !!}</p>
                 @php $category = \App\Models\Category::where("id",$subCategory["category_id"])->first() @endphp
                 <p class="mt-4">Ürün Grubu: <span class="text-success">{{$category["name"]}}</span></p>
 
