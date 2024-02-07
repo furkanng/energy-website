@@ -23,7 +23,8 @@ class Category extends Model
         "top_menu",
         "showcase",
         "row",
-        "status"
+        "status",
+        "sira"
     ];
 
     public function subcategory()

@@ -4,8 +4,8 @@
     <div class="row g-4">
         <div class="col-sm-12 col-xl-6">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Fiyat Bilgisi Ekle</h6>
-                <form method="POST" enctype="multipart/form-data" action="{{route("panel.catalog.store")}}">
+                <h6 class="mb-4">Marka Bilgisi Ekle</h6>
+                <form method="POST" enctype="multipart/form-data" action="{{route("panel.marka.store")}}">
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">Logo Ekle</label>
@@ -32,7 +32,7 @@
 
         <div class="col-sm-12 col-xl-6">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Fiyat Bilgileri</h6>
+                <h6 class="mb-4">Marka Bilgileri</h6>
                 <table class="table">
                     <thead>
                     <tr>
@@ -70,15 +70,15 @@
                                         <i class="bx bx-dots-vertical-rounded"></i>
                                     </button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ route('panel.catalog.show', $catalog->id) }}">
+                                        <a class="dropdown-item" href="{{ route('panel.marka.show', $catalog->id) }}">
                                             <i class="bx bx-edit-alt me-1"></i>Düzenle
                                         </a>
-                                        <a class="dropdown-item" href="{{ route('panel.catalog.destroy', $catalog->id) }}"
+                                        <a class="dropdown-item" href="{{ route('panel.marka.destroy', $catalog->id) }}"
                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $catalog->id }}').submit();">
                                             <i class="bx bx-trash me-1"></i>Sil
                                         </a>
                                         <form id="delete-form-{{ $catalog->id }}"
-                                              action="{{ route('panel.catalog.destroy', $catalog->id) }}" method="POST"
+                                              action="{{ route('panel.marka.destroy', $catalog->id) }}" method="POST"
                                               style="display: none;">
                                             @csrf
                                             @method('DELETE')

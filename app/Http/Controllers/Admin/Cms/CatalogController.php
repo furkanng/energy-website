@@ -19,7 +19,7 @@ class CatalogController extends Controller
      */
     public function index()
     {
-        $catalogs = Catalog::all();
+        $catalogs = Catalog::orderBy('sira', 'asc')->get();
         return view("user.pages.catalog", compact("catalogs"));
     }
 

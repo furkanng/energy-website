@@ -26,7 +26,10 @@
                         <img src="{{config("app.url")."/storage/categories/".$category->image}}" style="width: 300px"
                              class="mt-4">
                     @endif
-
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Sıra</label>
+                    <input type="number" style="width: 15%" class="form-control" value="{{$category->sira}}" name="sira">
                 </div>
                 <div class="form-check mb-3">
                     <input class="form-check-input" type="checkbox" name="status"

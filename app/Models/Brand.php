@@ -22,5 +22,6 @@ class Brand extends Model
         "seo_description",
         "seo_keywords",
         "status",
+        "sira"
     ];
 }

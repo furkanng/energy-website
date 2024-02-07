@@ -22,7 +22,8 @@ class SubCategory extends Model
         "seo_title",
         "seo_description",
         "seo_keywords",
-        "status"
+        "status",
+        "sira"
     ];
 
     public function category()

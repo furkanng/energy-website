@@ -19,7 +19,7 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::all();
+        $sliders = Slider::orderBy('sira', 'asc')->get();
         return view("user.pages.slider", compact("sliders"));
     }
 
@@ -40,6 +40,7 @@ class SliderController extends Controller
                 "image" => $filename,
                 "url" => config("app.url") . "/storage/slider/" . $filename,
                 'status' => $request->has('status') ? 1 : 0,
+                "sira" => $request->get("sira")
             ])->saveQuietly();
             return redirect()->back()->with('success', 'Resimler başarıyla yüklendi.');
         }
@@ -62,22 +63,26 @@ class SliderController extends Controller
     {
         $model = Slider::findOrFail($id);
 
-        $request->validate([
-            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
+// Resim yüklendiğinde eski resmi sil ve yeni resmi kaydet.
         if ($request->hasFile('image')) {
             Storage::disk('public')->delete('slider/' . $model->image);
             $filename = "slider-" . rand(1, 300) . "." . $request->file('image')->getClientOriginalExtension();
             Storage::disk('public')->put('slider/' . $filename, file_get_contents($request->file('image')));
-            $model->fill([
-                "title" => $request->get("title"),
-                "image" => $filename,
-                "url" => config("app.url") . "/storage/slider/" . $filename,
-                'status' => $request->has('status') ? 1 : 0,
-            ])->saveQuietly();
-            return redirect()->back()->with('success', 'Resimler başarıyla yüklendi.');
+
+            // Yeni resim adını modelde güncelle, fakat henüz kaydetme.
+            $model->image = $filename;
+            $model->url = config("app.url") . "/storage/slider/" . $filename;
         }
+
+// Resim yüklensin ya da yüklenmesin, diğer alanları güncelle.
+        $model->fill([
+            "title" => $request->get("title"),
+            'status' => $request->has('status') ? 1 : 0,
+            "sira" => $request->get("sira")
+        ])->saveQuietly();
+
+        return redirect()->back()->with('success', 'Slider başarıyla güncellendi.');
+
     }
 
     /**

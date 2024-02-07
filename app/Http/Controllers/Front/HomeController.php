@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Brand;
 use App\Models\Catalog;
 use App\Models\Category;
+use App\Models\Marka;
 use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\SubCategory;
@@ -20,10 +21,10 @@ class HomeController extends Controller
         $socialMedia = $model->get("socialMedia_settings");
         $contact = $model->get("contact_settings");
         $general = $model->get("general_settings");
-        $blogs = Blog::where("status", "1")->get();
+        $blogs = Blog::where("status", "1")->orderBy('sira', 'asc')->get();
         $categories = Category::where("status", "1")->get();
-        $sliders = Slider::where("status", "1")->get();
-        $brands = Brand::where("status", "1")->get();
+        $sliders = Slider::where("status", "1")->orderBy('sira', 'asc')->get();
+        $brands = Brand::where("status", "1")->orderBy('sira', 'asc')->get();
         return view('front.pages.home', compact(["socialMedia", "blogs", "categories", "sliders", "brands", "general", "contact"]));
     }
 
@@ -38,7 +39,7 @@ class HomeController extends Controller
 
     public function category()
     {
-        $categories = Category::where("status", "1")->get();
+        $categories = Category::where("status", "1")->orderBy('sira', 'asc')->get();
         $model = new Setting();
         $contact = $model->get("contact_settings");
         $socialMedia = $model->get("socialMedia_settings");
@@ -67,9 +68,18 @@ class HomeController extends Controller
     {
         $model = new Setting();
         $contact = $model->get("contact_settings");
-        $catalogs = Catalog::where("status", "1")->get();
+        $catalogs = Catalog::where("status", "1")->orderBy('sira', 'asc')->get();
         $socialMedia = $model->get("socialMedia_settings");
         return view('front.pages.price', compact(["socialMedia", "catalogs", "contact"]));
+    }
+
+    public function marka()
+    {
+        $model = new Setting();
+        $contact = $model->get("contact_settings");
+        $catalogs = Marka::where("status", "1")->orderBy('sira', 'asc')->get();
+        $socialMedia = $model->get("socialMedia_settings");
+        return view('front.pages.marka', compact(["socialMedia", "catalogs", "contact"]));
     }
 
     public function blog($seo_link)

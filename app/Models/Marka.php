@@ -2,23 +2,20 @@
 
 namespace App\Models;
 
-use App\Traits\ImageTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Catalog extends Model
+class Marka extends Model
 {
-    use HasFactory, ImageTrait;
+    use HasFactory;
 
-    public $timestamps = false;
-
-    protected $table = "catalog";
+    protected $table = "marka";
 
     protected $fillable = [
+        "name",
         "image",
         "pdf",
+        "sira",
         "status",
-        "sira"
     ];
-
 }

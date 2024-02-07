@@ -26,6 +26,10 @@
                     @endif
 
                 </div>
+                <div class="mb-3">
+                    <label class="form-label">Sıra</label>
+                    <input type="number" style="width: 15%" value="{{$blog->sira}}" class="form-control" name="sira">
+                </div>
                 <div class="form-check mb-3">
                     <input class="form-check-input" type="checkbox" name="status"
                            {{$blog->status ? "checked" : ""}} id="flexCheckDefault">

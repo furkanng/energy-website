@@ -25,7 +25,15 @@
                              style="width: 300px"
                              class="mt-4">
                     @endif
-
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Kapak Resim</label>
+                    <input class="form-control" type="file" name="kapak_resim" value="{{$subcategory->kapak_resim}}">
+                    @if(isset($subcategory->kapak_resim))
+                        <img src="{{$subcategory->kapak_url}}"
+                             style="width: 300px"
+                             class="mt-4">
+                    @endif
                 </div>
                 <div class="form-check mb-3">
                     <input class="form-check-input" type="checkbox" name="status"

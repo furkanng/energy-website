@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\Cms\CatalogController;
 use App\Http\Controllers\Admin\Cms\SliderController;
 use App\Http\Controllers\Admin\Customer\MessageController;
 use App\Http\Controllers\Admin\General\HomeController;
+use App\Http\Controllers\Admin\MarkaController;
 use App\Http\Controllers\Admin\Setting\ContactController;
 use App\Http\Controllers\Admin\Setting\SettingController;
 use App\Http\Controllers\Admin\Setting\SocialMediaController;
@@ -75,12 +76,19 @@ Route::middleware("userMiddleware")->group(function () {
             'store' => 'panel.message.store',
             'destroy' => 'panel.message.destroy',
         ]);
-        Route::resource("brand", BrandController::class)->parameters(["brand" => "id"])->names([
+        Route::resource("referance", BrandController::class)->parameters(["referance" => "id"])->names([
             'index' => 'panel.brand.index',
             'show' => 'panel.brand.show',
             'store' => 'panel.brand.store',
             'update' => 'panel.brand.update',
             'destroy' => 'panel.brand.destroy',
+        ]);
+        Route::resource("marka", MarkaController::class)->parameters(["marka" => "id"])->names([
+            'index' => 'panel.marka.index',
+            'show' => 'panel.marka.show',
+            'store' => 'panel.marka.store',
+            'update' => 'panel.marka.update',
+            'destroy' => 'panel.marka.destroy',
         ]);
     });
 });

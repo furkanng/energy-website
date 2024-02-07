@@ -34,7 +34,9 @@
                 Yönetimi</a>
             <a href="{{route("panel.catalog.index")}}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Fiyat
                 Bilgisi</a>
-            <a href="{{route("panel.brand.index")}}" class="nav-item nav-link"><i class="fa fa-award me-2"></i>Marka
+            <a href="{{route("panel.brand.index")}}" class="nav-item nav-link"><i class="fa fa-award me-2"></i>Referans
+                Yönetimi</a>
+            <a href="{{route("panel.marka.index")}}" class="nav-item nav-link"><i class="fa fa-award me-2"></i>Marka
                 Yönetimi</a>
             <a href="{{route("panel.message.index")}}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Mesajlar</a>
         </div>

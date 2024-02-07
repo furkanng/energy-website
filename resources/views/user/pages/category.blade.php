@@ -17,6 +17,10 @@
                             <label class="form-label">Resim</label>
                             <input class="form-control" type="file" name="image">
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label">Sıra</label>
+                            <input type="number" style="width: 15%" class="form-control" name="sira">
+                        </div>
                         <div class="form-check mb-3">
                             <input class="form-check-input" type="checkbox" name="status" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
@@ -46,6 +50,14 @@
                         <div class="mb-3">
                             <label class="form-label">Resim</label>
                             <input class="form-control" type="file" name="image">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Kapak Resim</label>
+                            <input class="form-control" type="file" name="kapak_resim">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Sıra</label>
+                            <input type="number" style="width: 15%" class="form-control" name="sira">
                         </div>
                         <div class="form-check mb-3">
                             <input class="form-check-input" type="checkbox" name="status" id="flexCheckDefault">

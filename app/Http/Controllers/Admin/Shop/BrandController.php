@@ -18,7 +18,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brands = Brand::all();
+        $brands = Brand::orderBy('sira', 'asc')->get();
         return view('user.pages.brand', compact("brands"));
     }
 

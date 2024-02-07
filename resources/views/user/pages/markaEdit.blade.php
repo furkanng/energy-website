@@ -3,16 +3,16 @@
 @section('content')
     <div class="row g-4">
         <div class="bg-light rounded h-100 p-4">
-            <h6 class="mb-4">Fiyat Bilgisi Düzenle</h6>
+            <h6 class="mb-4">Marka Bilgisi Düzenle</h6>
             <form method="POST" enctype="multipart/form-data"
-                  action="{{route("panel.catalog.update",["id" => $catalog->id])}}">
+                  action="{{route("panel.marka.update",["id" => $catalog->id])}}">
                 @csrf
                 @method("PUT")
                 <div class="mb-3">
                     <label class="form-label">Logo</label>
                     <input class="form-control" type="file" name="image" value="{{$catalog->image}}">
                     @if(isset($catalog->image))
-                        <img src="{{config("app.url")."/storage/catalog/".$catalog->image}}" style="width: 300px"
+                        <img src="{{config("app.url")."/storage/brand/".$catalog->image}}" style="width: 300px"
                              class="mt-4">
                     @endif
                 </div>
@@ -20,12 +20,13 @@
                     <label class="form-label">Pdf</label>
                     <input class="form-control" type="file" name="pdf" value="{{$catalog->pdf}}">
                     @if(isset($catalog->pdf))
-                        <iframe class="mt-3" style="max-width: 300px" src="{{config("app.url")."/storage/pdf/".$catalog->pdf}}" title="pdf"></iframe>
+                        <iframe class="mt-3" style="max-width: 300px"
+                                src="{{config("app.url")."/storage/pdf/".$catalog->pdf}}" title="pdf"></iframe>
                     @endif
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Sıra</label>
-                    <input type="number" style="width: 15%" value="{{$catalog->sira}}" class="form-control" name="sira">
+                    <input type="number" style="width: 15%" class="form-control" value="{{$catalog->pdf}}" name="sira">
                 </div>
                 <div class="form-check mb-3">
                     <input class="form-check-input" type="checkbox" name="status"

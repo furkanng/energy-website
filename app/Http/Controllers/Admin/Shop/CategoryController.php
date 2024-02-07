@@ -19,8 +19,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        $subcategories = SubCategory::all();
+        $categories = Category::orderBy('sira', 'asc')->get();
+        $subcategories = SubCategory::orderBy('sira', 'asc')->get();
         return view("user.pages.category", compact(["categories", "subcategories"]));
     }
 

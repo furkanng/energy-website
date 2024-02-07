@@ -38,6 +38,12 @@
         <a class="navbar-brand align-self-center" href="{{ route("front.home") }}">
             <img class="image-fluid rounded-3" src="{{ asset("images/logo.png") }}"
                  style="width: 225px; height: 100px;">
+            <div style="width: 225px">
+                <p style="font-family: 'Century'" class="d-flex justify-content-center p-0 m-0">Elektrik -
+                    Otomasyon </p>
+                <p style="font-family: 'Century'" class="d-flex justify-content-center p-0 m-0">Kesici ve Pano
+                    Aksesuarları</p>
+            </div>
         </a>
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                 data-bs-target="#templatemo_main_nav" aria-controls="templatemo_main_nav" aria-expanded="false"
@@ -53,7 +59,7 @@
                         <a class="nav-link" href="{{ route("front.home") }}">Anasayfa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route("front.about") }}">Hakkımızda</a>
+                        <a class="nav-link" href="{{ route("front.about") }}">Kurumsal</a>
                     </li>
                     <li class="nav-item dropdown">
                         <div class="btn-group">
@@ -71,7 +77,10 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route("front.price") }}">Fiyat Bilgisi</a>
+                        <a class="nav-link" href="{{ route("front.marka") }}">Markalar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route("front.price") }}">Fiyat Listeleri</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route("front.contact") }}" class="nav-link">İletişim</a>

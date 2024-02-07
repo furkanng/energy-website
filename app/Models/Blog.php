@@ -23,5 +23,6 @@ class Blog extends Model
         "seo_keywords",
         "tags",
         "status",
+        "sira"
     ];
 }

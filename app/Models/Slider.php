@@ -17,6 +17,7 @@ class Slider extends Model
         "image",
         "url",
         "position",
-        "status"
+        "status",
+        "sira"
     ];
 }
